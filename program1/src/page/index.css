@@ -1,3 +1,4 @@
+
 :root {
   --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
@@ -156,4 +157,38 @@ button {
   background: #ffffff;
   z-index: 8;
   border-radius: calc(6 * var(--rpx));
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.login-button, .google-login, .kakao-login {
+  width: 80vw;
+  height: 10vh;
+  margin: 10px 0;
+}
+
+.login-button span, .google-login span, .kakao-login span {
+  font-size: 4vw;
+}
+
+@media (max-width: 600px) {
+  .login-button, .google-login, .kakao-login {
+    width: 90vw;
+  }
+}
+
+@media (min-width: 601px) {
+  .login-button, .google-login, .kakao-login {
+    width: 60vw;
+  }
 }
