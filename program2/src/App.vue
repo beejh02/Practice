@@ -6,48 +6,38 @@
       <p>상세페이지 내용</p>
       <button @click = "모달창 = 0">닫기</button>
     </div>
-   </div>
+  </div>
 
   <div class = 'menu'>
     <a v-for = "a in 메뉴들" :key="a"> {{ a }} </a>
   </div>
 
-
-
-
-
-
-
-
-  
   <div>
-    <img src = "./assets/logo.png" class = "room-img">
-    <h4 @click="모달창 = 1"> {{products[0]}} 원룸</h4>
-    <p>50 만원</p>
-    <button @click="increase(0)">허위매물신고</button> <span>신고수 : {{ 신고수[0]  }}</span>
+    <img :src="원룸들[0].image" class = "room-img">
+    <h4> {{ 원룸들[0].title }}</h4>
+    <p>{{ 원룸들[0].price }} 원</p>
   </div>
-  <div>
-    <img src = "./assets/logo.png">
-    <h4> {{products[1]}} 원룸</h4>
-    <p>50 만원</p>
-    <button @click="increase(1)">허위매물신고</button> <span>신고수 : {{ 신고수[1]  }}</span>
+
+  <div id="app">
+    <router-link to="/title">Go to Title Page</router-link>
+    <!-- 라우트된 컴포넌트가 렌더링될 자리 -->
+    <router-view></router-view> 
   </div>
-  <div>
-    <img src = "./assets/logo.png">
-    <h4> {{products[2]}} 원룸</h4>
-    <p>50 만원</p>
-    <button @click="increase(2)">허위매물신고</button> <span>신고수 : {{ 신고수[2]  }}</span>
-  </div>
+
+
 </template>
 
 
 
 
 <script>
+import data from './assets/oneroom.js'
+
 export default {
   name: 'App',
   data() {
     return {
+      원룸들 : data,
       모달창 : 0,
       신고수 : [0, 0, 0],
       메뉴들 : ["Home", "Shop", "About"],

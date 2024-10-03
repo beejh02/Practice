@@ -1,4 +1,4 @@
-# program1
+# program2
 
 ## Project setup
 ```
