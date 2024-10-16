@@ -1,17 +1,24 @@
-// import { createWebHistory, createRouter } from 'vue-router'
-// import PageTitle from '@/components/PageTitle.vue'
+import { createWebHistory, createRouter } from 'vue-router'
+import LoginPage from '@/page/LoginPage.vue'
+import MainTest from '@/page/MainTest.vue'
 
-// const routes = [
-//     {
-//         path: '/pagetitle',
-//         name: 'PageTitle',
-//         component: PageTitle
-//     }
-// ]
+const routes = [
+    {
+        path: '/',
+        name: 'Home',
+        component: MainTest
+    },
+    {
+        path: '/LoginPage',
+        name: 'LoginPage',
+        component: LoginPage
+    }
+]
 
-// const router = createRouter({
-//     history: createWebHistory(),
-//     routes
-// })
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
 
-// export default router
+
+export default router
