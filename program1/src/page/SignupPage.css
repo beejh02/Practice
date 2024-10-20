@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-section {
+  flex: 0.9;
+  display: flex;
+  background: linear-gradient(45deg, #F6EBFF, #FF9494);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ccc;
+}
+
+.form-section {
+  flex: 1;
+  padding: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 0rem;
+}
+
+.oauth {
+  width: 342px;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+
+/* 임시사용이미지 이므로 교체 필요 + margin-right로 임시로 명시 */
+.oauth-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 50px;
+}
+
+.login-message1{
+  margin-bottom: 1.5rem;
+  color:#666;
+}
+
+.signup-container{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.resignup-container{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.select-skills{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size : 1.2rem;
+}
+
+input {
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 45px;
+  font-size: 1.2rem;
+}
+
+.forget-and-login-button{
+  margin-top: 0.5rem;
+  padding: 0rem;
+}
+
+.button-gradient {
+  padding: 10px;
+  width: 17rem;
+  background: linear-gradient(90deg, #F6EBFF, #FF9494);
+  color: black;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+
+/* 뭔 기능인지 모름 일단 유지시켜 */
+button:hover {
+  background-color: #45a049;
+}

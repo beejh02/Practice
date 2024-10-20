@@ -1,38 +1,39 @@
 <template>
-    <div class="dropdown" @click="toggleDropdown" ref="dropdown">
-      <button class="dropdown-button">메뉴   d</button>
-      <div v-if="isOpen" class="dropdown-content">
-        <a href="1">메뉴 1</a>
-        <a href="2">메뉴 2</a>
-        <a href="3">메뉴 3</a>
-      </div>
+  <div class="dropdown" @click.self="closeDropdown">
+    <button class="dropdown-button" @click.stop="toggleDropdown">{{ selectedItem }}</button>
+    <div v-if="isDropdownOpen" class="dropdown-content">
+      <button @click="selectItem('항목 1')">항목 1</button>
+      <button @click="selectItem('항목 2')">항목 2</button>
+      <button @click="selectItem('항목 3')">항목 3</button>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  
-  const isOpen = ref(false);
-  
-  function toggleDropdown() {
-    isOpen.value = !isOpen.value;
-  }
-  
-  function handleClickOutside(event) {
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown && !dropdown.contains(event.target)) {
-      isOpen.value = false;
+  </div>
+</template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      isDropdownOpen: false,
+      selectedItem: '드롭다운 버튼'
+    };
+  },
+  methods: {
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    selectItem(item) {
+      /*
+      console.log(`${item}이(가) 선택되었습니다.`);
+      */
+      this.selectedItem = item;
+      this.isDropdownOpen = false;
+    },
+    closeDropdown() {
+      this.isDropdownOpen = false;
     }
   }
-  
-  onMounted(() => {
-    window.addEventListener('click', handleClickOutside);
-  });
-  
-  onBeforeUnmount(() => {
-    window.removeEventListener('click', handleClickOutside);
-  });
-  </script>
-  
-  <style src="./MainTest.css"></style>
-  
+};
+</script>
+
+<style src="./MainTest.css"></style>
