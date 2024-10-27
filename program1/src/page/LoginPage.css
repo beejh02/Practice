@@ -103,9 +103,3 @@ input {
   cursor: pointer;
   font-size: 1.2rem;
 }
-
-
-/* 뭔 기능인지 모름 일단 유지시켜 */
-button:hover {
-  background-color: #45a049;
-}

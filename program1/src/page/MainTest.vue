@@ -1,12 +1,12 @@
 <template>
-  <div class="dropdown" @click.self="closeDropdown">
-    <button class="dropdown-button" @click.stop="toggleDropdown">{{ selectedItem }}</button>
+
+
+  <button class="dropdown-button" @click.stop="toggleDropdown">{{ selectedItem }}</button>
     <div v-if="isDropdownOpen" class="dropdown-content">
       <button @click="selectItem('항목 1')">항목 1</button>
       <button @click="selectItem('항목 2')">항목 2</button>
       <button @click="selectItem('항목 3')">항목 3</button>
     </div>
-  </div>
 </template>
 
 
@@ -18,7 +18,7 @@ export default {
       selectedItem: '드롭다운 버튼'
     };
   },
-  methods: {
+  methods: {  
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
     },

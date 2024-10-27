@@ -1,3 +1,4 @@
+/* 전체 페이지 스타일 */
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ body {
   background-color: #f5f5f5;
 }
 
+/* 메인 컨테이너 */
 .container {
   display: flex;
   width: 100vw;
@@ -18,6 +20,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 이미지 섹션 */
 .image-section {
   flex: 0.9;
   display: flex;
@@ -32,11 +35,13 @@ body {
   object-fit: cover;
 }
 
+/* 구분선 */
 .divider {
   width: 1px;
   background-color: #ccc;
 }
 
+/* 폼 섹션 */
 .form-section {
   flex: 1;
   padding: 7rem;
@@ -47,62 +52,74 @@ body {
   margin-left: 0rem;
 }
 
-.oauth {
-  width: 342px;
-  height: 3rem;
-  margin-top: 1rem;
-  margin-bottom: 4rem;
-}
-
-
-/* 임시사용이미지 이므로 교체 필요 + margin-right로 임시로 명시 */
-.oauth-image {
-  width: 50px;
-  height: 50px;
-  margin-right: 50px;
-}
-
-.login-message1{
-  margin-bottom: 1.5rem;
-  color:#666;
-}
-
-.signup-container{
+/* 폼 레이아웃 행 */
+.form-row {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.resignup-container{
+/* 입력 필드 그룹 */
+.input-group {
+  flex: 1;
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
-.select-skills{
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.input-group:last-child {
+  margin-right: 0;
 }
 
+/* 레이블 스타일 */
 label {
   margin-bottom: 8px;
   font-weight: bold;
-  font-size : 1.2rem;
+  font-size: 1.2rem;
 }
 
+/* 입력 필드 스타일 */
 input {
   padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 45px;
   font-size: 1.2rem;
 }
 
-.forget-and-login-button{
-  margin-top: 0.5rem;
-  padding: 0rem;
+/* 드롭다운 섹션 */
+.dropdown {
+  position: relative;
+  flex: 1;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* 제출 버튼 */
+.submit-button {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .button-gradient {
@@ -116,8 +133,23 @@ input {
   font-size: 1.2rem;
 }
 
+/* OAuth 섹션 */
+.oauth {
+  width: 342px;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
 
-/* 뭔 기능인지 모름 일단 유지시켜 */
-button:hover {
-  background-color: #45a049;
+.oauth-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.oauth-image:last-child {
+  margin-right: 0;
 }
