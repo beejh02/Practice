@@ -1,0 +1,85 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffeaa7;
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 16rem;
+    z-index: 9999;
+}
+
+.container > .sidebar {
+    background-color: #ffeaa7;
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 15rem;
+    z-index: 9999;
+}
+
+.sidebar input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-image: url('../assets/images/임시사용이미지.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    transition: ease;
+}
+
+#search {
+    width : 13rem;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin : 1rem;
+}
+
+.sidebar input:focus {
+    border-color: #ff6347;
+    box-shadow: 0 0 5px #ff6347;
+    background-image: none;
+}
+
+.sidebar_menu {
+    flex: 1;
+    margin-top: 3rem;
+}
+
+.sidebar_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar_span{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-left: 1rem;
+}
+
+.sidebar_button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.sidebar_button:hover {
+    background-color: #FCF4EC; /* 마우스를 올렸을 때 배경색 변경 */
+    color: #F48023; /* 마우스를 올렸을 때 텍스트 색상 변경 */
+}
