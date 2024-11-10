@@ -36,4 +36,4 @@ export default {
 };
 </script>
 
-<style src="./MainTest.css"></style>
+<style scoped src="./MainTest.css"></style>

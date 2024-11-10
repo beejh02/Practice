@@ -1,8 +1,8 @@
 <template>
 <div class="container">
         <!-- 사이트 로고 이미지 -->
-        <div class="image-section">
-            <img src="../assets/images/site-logo3.png" alt="이미지" />
+    <div class="image-section">
+        <img src="../assets/images/site-logo3.png" alt="이미지" />
         </div>
 
 
@@ -57,4 +57,4 @@
 
 
 
-<style src="./LoginPage.css"></style>
+<style scoped src="./LoginPage.css"></style>

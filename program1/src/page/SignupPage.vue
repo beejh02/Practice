@@ -103,4 +103,4 @@ export default {
 
 
 
-<style src="./SignupPage.css"></style>
+<style scoped src="./SignupPage.css"></style>

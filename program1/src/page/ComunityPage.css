@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.header {
+    height: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* 양 끝 정렬 */
+    align-items: center;
+    background-color: white;
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.svg {
+    flex: 1;
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 3rem;
+    color: black;
+}
+
+.nav ul {
+    width : 50rem;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    padding : 1rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #ff6347;
+}
+
+.myinfo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
