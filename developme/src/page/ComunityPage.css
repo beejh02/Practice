@@ -6,7 +6,7 @@
     left: 0;
     top: 70px;
     bottom: 0;
-    width: 16rem;
+    width: 16 rem;
     z-index: 9999;
 }
 
@@ -82,4 +82,10 @@
 .sidebar_button:hover {
     background-color: #FCF4EC; /* 마우스를 올렸을 때 배경색 변경 */
     color: #F48023; /* 마우스를 올렸을 때 텍스트 색상 변경 */
+}
+
+.post_state{
+    border:none;
+    margin: 1rem;
+    width: 65hug;
 }
