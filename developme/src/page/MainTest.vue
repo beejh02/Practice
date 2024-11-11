@@ -1,56 +1,81 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">로고</a>
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">홈</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">문서</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">예시</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">아이콘</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">테마</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">블로그</a>
-            </li>
-        </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="문서 검색..." aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">검색</button>
-        </form>
+    <div class="calendar-container">
+    <div class="calendar-header">
+        <div class="header-title">
+        <span>{{ monthNames[month] }} {{ year }}</span>
+        </div>
+        <div class="header-controls">
+        <button @click="previousMonth">이전</button>
+        <button @click="nextMonth">다음</button>
         </div>
     </div>
-    </nav>
+    <div class="calendar-grid">
+        <div class="day-name" v-for="day in dayNames" :key="day">{{ day }}</div>
+        <div
+        class="calendar-day"
+        v-for="(day, index) in calendarDays"
+        :key="index"
+        :class="{ 'today': isToday(day), 'empty': day === null }"
+        >
+        <div v-if="day" class="day-number">{{ day }}</div>
+        <div v-if="day" class="day-notes">들어갈 부분</div>
+        </div>
+    </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'NavBar',
+    data() {
+    return {
+        currentDate: new Date(),
+        year: new Date().getFullYear(),
+        month: new Date().getMonth(),
+        dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        monthNames: [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ],
+    };
+    },
+    computed: {
+    calendarDays() {
+        const firstDay = new Date(this.year, this.month, 1).getDay();
+        const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+        const daysArray = Array(firstDay).fill(null).concat(
+        new Array(daysInMonth).fill().map((_, index) => index + 1)
+        );
+        return daysArray;
+    },
+    },
+    methods: {
+    previousMonth() {
+        if (this.month === 0) {
+        this.month = 11;
+        this.year--;
+        } else {
+        this.month--;
+        }
+    },
+    nextMonth() {
+        if (this.month === 11) {
+        this.month = 0;
+        this.year++;
+        } else {
+        this.month++;
+        }
+    },
+    isToday(day) {
+        const today = new Date();
+        return (
+        day === today.getDate() &&
+        this.month === today.getMonth() &&
+        this.year === today.getFullYear()
+        );
+    },
+    },
 };
 </script>
 
-<style scoped>
-.navbar-brand {
-    font-weight: bold;
-}
-</style>
+
+<style scoped src="./MainTest.css"></style>
