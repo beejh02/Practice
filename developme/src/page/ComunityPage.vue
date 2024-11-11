@@ -48,11 +48,15 @@
 
 
         <div class = "contents">
-            <button class = "post_state">New</button>
-            <button class = "post_state">Top</button>
-            <button class = "post_state">Hot</button>
-            <button class = "post_state">Closed</button>
-
+            <div class = "contents_head">
+                <div class = "post_state_button">
+                    <button v-for="(label, index) in ['New', 'Top', 'Hot', 'Closed']" :key="index" class="post_state" :class="{ active: activePostState === index }" @click="togglePostState(index)">
+                        {{ label }}
+                    </button>
+                </div>
+                <button id = "write_post_button" @click="writePost" >글 작성하기</button>
+            </div>
+            <div class = "contents_body"></div>
         </div>
     </div>
 </template>
@@ -64,7 +68,8 @@
 export default {
     data() {
         return {
-            activeButton: null
+            activeButton: null,
+            activePostState: null
         };
     },
     methods: {
@@ -83,24 +88,20 @@ export default {
                 });
         },
         searchFunction() {
-            const query = document.getElementById('searchInput').value;
+            const query = document.getElementById('search').value;
             console.log("검색어:", query);
         },
         toggleButton(buttonId) {
-            // 버튼 상태를 토글
             if (this.activeButton === buttonId) {
                 this.activeButton = null;
             } else {
                 this.activeButton = buttonId;
             }
 
-            // 서버에 버튼 상태를 전송
-            fetch('/api/button-status', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ buttonId: this.activeButton })
+            const url = `/api/button-status?buttonId=${this.activeButton}`;
+
+            fetch(url, {
+                method: 'GET'
             })
             .then(response => response.json())
             .then(data => {
@@ -108,6 +109,31 @@ export default {
             })
             .catch(error => {
                 console.error('서버 요청 오류:', error);
+            });
+        },
+        togglePostState(buttonIndex) {
+            if (this.activePostState === buttonIndex) {
+                this.activePostState = null;
+            } else {
+                this.activePostState = buttonIndex;
+            }
+        },
+        writePost() {
+            // API 요청
+            fetch('/api/community/posts', {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 페이지 전환
+                    this.$router.push('/write-post'); // 글 작성 페이지로 이동
+                } else {
+                    alert('페이지로 전환하는데 문제가 발생했습니다.');
+                }
+            })
+            .catch(error => {
+                console.error('API 요청 오류:', error);
+                alert('요청 중 오류가 발생했습니다.');
             });
         }
     }
