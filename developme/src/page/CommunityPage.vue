@@ -144,4 +144,4 @@ export default {
 
 
 
-<style scoped src="./ComunityPage.css"></style>
+<style scoped src="./CommunityPage.css"></style>

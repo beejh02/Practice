@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import MainTest from '@/page/MainTest.vue'
-import ComunityPage from '@/page/ComunityPage.vue'
+import CommunityPage from '@/page/CommunityPage.vue'
 const routes = [
     {
         path: '/',
@@ -8,9 +8,9 @@ const routes = [
         component: MainTest
     },
     {
-        path: '/ComunityPage',
-        name: 'ComunityPage',
-        component: ComunityPage
+        path: '/CommunityPage',
+        name: 'ComumnityPage',
+        component: CommunityPage
     }
 ]
 
