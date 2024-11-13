@@ -1,3 +1,25 @@
-.container {
-    padding: 50px;
+.contents {
+    height: 100vh;
+    padding: 3rem;
+    padding-top: 1rem;
+}
+
+#modify_personal_info{
+    margin: 0;
+    font-size: 3rem;
+    margin-left: 100px;
+}
+
+.info_column{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;;
+}
+
+.my_info_box{
+    margin: 40px;
+    background: #ff8b7c;
+    height: 600px;
+    width: 800px;
+    border-radius: 35px;
 }

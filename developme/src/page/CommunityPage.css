@@ -20,6 +20,15 @@
     z-index: 9999;
 }
 
+.container > .contents {
+    background-color: #74b9ff;
+    position: absolute;
+    left: 15rem;
+    right: 0;
+    top: 0;
+    padding: 0.3rem;
+}
+
 .sidebar input {
     width: 100%;
     padding: 10px 40px 10px 10px;

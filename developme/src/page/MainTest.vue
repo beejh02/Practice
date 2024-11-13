@@ -20,7 +20,16 @@
     </header>
 
     <div class ="container">
-        ddd
+        <div class= "contents">
+            <h2 id = "modify_personal_info">정보수정</h2>
+            <div class = "info_column">
+                <div class = "my_info_box">
+                    <label>닉네임</label>
+                </div>
+                <div class = "my_info_box">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -107,4 +116,4 @@ export default {
 
 
 
-<style scoped src="./CommunityPage.css"></style>
+<style scoped src="./MainTest.css"></style>
