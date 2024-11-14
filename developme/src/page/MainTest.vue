@@ -23,7 +23,7 @@
         <div class= "contents">
             <h2 id = "modify_personal_info">정보수정</h2>
             <div class = "info_column">
-                <div class = "my_info_box">
+                <div class = "my_info_box1">
                     <a class = "personal_info_a">내 정보</a>
                     <div class="user_info">
                         <div class = "nickname_field">
@@ -45,35 +45,43 @@
                 </div>
 
 
-                <div class = "my_info_box">
-                    <form class="update-info">
-                        <div class="form-group">
-                            <label for="new-nickname">닉네임</label>
-                            <input type="text" id="new-nickname" name="nickname" value="오리">
+                <div class = "my_info_box2"> 
+                    <a class = "personal_info_a">내 정보</a>
+                    <form class="update_info">
+                        <div class = "nickname_field">
+                            <div class="form_group">
+                                <label for="new_nickname">닉네임</label>
+                                <input type="text" id="new_nickname" name="nickname" value="오리">
+                                </div>
+                            <div class="form_group">
+                                <label for="new_field">분야</label>
+                                <select id="new_field" name="field">
+                                    <option value="backend">백엔드 개발자</option>
+                                    <option value="frontend">프론트엔드 개발자</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="new-field">분야</label>
-                            <select id="new-field" name="field">
-                                <option value="backend">백엔드 개발자</option>
-                                <option value="frontend">프론트엔드 개발자</option>
-                            </select>
+                        
+                        <div class="form_group">
+                            <label for="new_tech">기술 스택</label>
+                            <textarea id="new_tech" name="tech" rows="4">Java, Java Spring, MySQL, Mongo DB</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="new-tech">기술 스택</label>
-                            <textarea id="new-tech" name="tech" rows="4">Java, Java Spring, MySQL, Mongo DB</textarea>
+                        <div class = "nickname_field">
+                            <div class="form-group">
+                                <label for="new_password">변경 비밀번호</label>
+                                <input type="password" id="new_password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">비밀번호 확인</label>
+                                <input type="password" id="confirm_password" name="confirm_password">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="new-password">변경 비밀번호</label>
-                            <input type="password" id="new-password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm-password">비밀번호 확인</label>
-                            <input type="password" id="confirm-password" name="confirm-password">
-                        </div>
-                        <button type="submit">수정하기</button>
                     </form>
                 </div>
             </div>
+            <form id = "button_form">
+                <button id = "submit_button">제출하기</button>
+            </form>
         </div>
     </div>
 </template>
