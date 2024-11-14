@@ -13,13 +13,61 @@
 .info_column{
     display: flex;
     flex-direction: row;
-    justify-content: center;;
+    justify-content: center;
 }
 
 .my_info_box{
     margin: 40px;
-    background: #ff8b7c;
+    background: #FFB6AC;
     height: 600px;
     width: 800px;
     border-radius: 35px;
+    padding: 50px;
+    padding-top: 30px;
+}
+
+.personal_info_a {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.nickname_field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.user_info{
+    margin-top: 30px;
+}
+
+label {
+    font-weight: 700;
+}
+
+#nickname {
+    font-weight: 100;
+    background-color: white;
+    padding : 10px;
+    padding-left: 20px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+}
+
+#field {
+    background-color: white;
+    padding : 10px;
+    padding-left: 20px;
+    width: 300px;
+    height: 45px;
+    border-radius: 8px;
+}
+
+#tech {
+    background-color: white;
+    height: 300px;
+    padding: 30px;
+    border-radius: 50px;;
 }

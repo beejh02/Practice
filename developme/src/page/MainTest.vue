@@ -24,9 +24,54 @@
             <h2 id = "modify_personal_info">정보수정</h2>
             <div class = "info_column">
                 <div class = "my_info_box">
-                    <label>닉네임</label>
+                    <a class = "personal_info_a">내 정보</a>
+                    <div class="user_info">
+                        <div class = "nickname_field">
+                            <div class="form_group">
+                                <label for="nickname">닉네임</label>
+                                <p id="nickname">오리</p>
+                            </div>
+                            <div class="form_group">
+                                <label for="field">분야</label>
+                                <p id="field">백엔드 개발자</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form_group">
+                            <label for="tech">기술 스택</label>
+                            <p id="tech">Java, Java Spring, MySQL, Mongo DB</p>
+                        </div>
+                    </div>
                 </div>
+
+
                 <div class = "my_info_box">
+                    <form class="update-info">
+                        <div class="form-group">
+                            <label for="new-nickname">닉네임</label>
+                            <input type="text" id="new-nickname" name="nickname" value="오리">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-field">분야</label>
+                            <select id="new-field" name="field">
+                                <option value="backend">백엔드 개발자</option>
+                                <option value="frontend">프론트엔드 개발자</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-tech">기술 스택</label>
+                            <textarea id="new-tech" name="tech" rows="4">Java, Java Spring, MySQL, Mongo DB</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">변경 비밀번호</label>
+                            <input type="password" id="new-password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">비밀번호 확인</label>
+                            <input type="password" id="confirm-password" name="confirm-password">
+                        </div>
+                        <button type="submit">수정하기</button>
+                    </form>
                 </div>
             </div>
         </div>
