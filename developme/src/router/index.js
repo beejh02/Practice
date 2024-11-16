@@ -3,6 +3,7 @@ import MainTest from '@/page/MainTest.vue'
 import CommunityPage from '@/page/CommunityPage.vue'
 import LoginPage from '@/page/LoginPage.vue'
 import MyPage from '@/page/MyPage.vue'
+import NewTest from '@/page/NewTest.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/MyPage',
         name: 'MyPage',
         component: MyPage
+    },
+    {
+        path: '/NewTest',
+        name: 'NewTest',
+        component: NewTest
     }
 ]
 
