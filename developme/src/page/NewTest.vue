@@ -7,10 +7,10 @@
         <button type="submit">게시글 추가</button>
     </form>
     <ul>
-        <li v-for="(post, index) in posts" :key="index">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.content }}</p>
-        <button @click="deletePost(index)">삭제</button>
+        <li v-for="(post, index) in posts" :key="index" @click="fetchPost(index)">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <button @click.stop="deletePost(index)">삭제</button>
         </li>
     </ul>
     </div>
@@ -19,25 +19,37 @@
 <script>
 export default {
     data() {
-    return {
+        return {
         newPost: {
-        title: '',
-        content: '',
+            title: '',
+            content: '',
         },
         posts: [],
-    };
+        };
     },
     methods: {
-    addPost() {
+        addPost() {
         if (this.newPost.title && this.newPost.content) {
-        this.posts.push({ ...this.newPost });
-        this.newPost.title = '';
-        this.newPost.content = '';
+            this.posts.push({ ...this.newPost });
+            this.newPost.title = '';
+            this.newPost.content = '';
         }
-    },
-    deletePost(index) {
+        },
+        deletePost(index) {
         this.posts.splice(index, 1);
-    },
+        },
+        // 게시글 조회 함수 추가
+        fetchPost(postId) {
+        fetch(`/api/community/${postId}`)
+            .then(response => response.json())
+            .then(data => {
+            // 조회된 게시글 데이터를 처리
+            console.log('게시글 데이터:', data);
+            })
+            .catch(error => {
+            console.error('게시글 조회 오류:', error);
+            });
+        },
     },
 };
 </script>
