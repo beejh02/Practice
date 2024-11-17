@@ -1,83 +1,49 @@
 <template>
-    <header>
-        <div class="maintitle">
-            <h1>Develop Me!</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">투두 리스트</a></li>
-                <li><a href="#">캘린더</a></li>
-                <li><a href="comunitypage">커뮤니티</a></li>
-                <li><a href="#">로드맵</a></li>
-                <li><a href="#">알고리즘</a></li>
-                <li><a href="mypage">마이페이지</a></li>
-            </ul>
-        </nav>
-        <div class="myinfo">
-            <button @click="logout_function" class="logout_button">로그아웃</button>
-            <div class="welcome_me">{{ 사용자명 }}님 환영합니다.</div>
-        </div>
-    </header>
-
-    
-    <div id = "content">
-        <div id = "sidebar">
-            <form id = "search_form">
-                <input id = "search_input" placeholder="검색">
-            </form>
-            <div id = "sidebar_menu">
-                <ul id = "ul_menu">메뉴</ul>
-                <li class="sidebar_li" 
-                    :class="{ active: selectedMenu === 0 }" 
-                    @click="selectMenu(0)">전체 글 보기</li>
-                <li class="sidebar_li" 
-                    :class="{ active: selectedMenu === 1 }" 
-                    @click="selectMenu(1)">내가 쓴 모집글</li>
-                <li class="sidebar_li" 
-                    :class="{ active: selectedMenu === 2 }" 
-                    @click="selectMenu(2)">내가 지원한 글</li>
-            </div>
-        </div>
-        <div id = "main_content">
-            
-        </div>
-    </div>
+  <div class="kanban-board">
+      <div class="board-header">
+      <h2>May 2024</h2>
+      <button @click="changeDate">날짜 변경</button>
+      </div>
+      <div class="board-columns">
+      <div v-for="(column, index) in columns" :key="index" class="column">
+          <h3>{{ column.title }} <span>{{ column.tasks.length }}</span></h3>
+          <div class="tasks">
+          <div v-for="(task, idx) in column.tasks" :key="idx" class="task-card">
+              <p>{{ task.name }}</p>
+          </div>
+          <button class="add-task-btn" @click="addTask(index)">Add task</button>
+          </div>
+      </div>
+      </div>
+  </div>
 </template>
-
-
 
 
 <script>
 export default {
-    data() {
-        return {
-            selectedMenu: null // 선택된 메뉴 항목의 인덱스를 저장
-        };
-    },
-    methods: {
-        logout_function() {
-            fetch('/api/users/logout', { method: 'POST' })
-                .then(response => {
-                    if (response.ok) {
-                        this.$router.push('/logout');
-                    } else {
-                        alert('로그아웃 실패');
-                    }
-                })
-                .catch(error => {
-                    console.error('로그아웃 오류:', error);
-                    alert('로그아웃 중 오류 발생');
-                });
-        },
-        selectMenu(index) {
-            this.selectedMenu = index; // 선택된 메뉴의 인덱스를 설정
-        }
-    }
+  data() {
+      return {
+      columns: [
+          { title: 'Get Started', tasks: [{ name: 'Welcome to your board' }, { name: 'Find your files' }, { name: 'Branding & Assets' }, { name: 'Manage your subscription' }] },
+          { title: 'Requests Backlog', tasks: [{ name: 'Pricing page' }, { name: 'Contact us page' }, { name: 'Google Chrome Extension Redesign' }, { name: 'X/Twitter Cover' }] },
+          { title: 'In Progress', tasks: [{ name: 'Home page' }, { name: 'Schedule custom reporting' }] },
+          { title: 'Approved', tasks: [{ name: 'Search history for Backlinks and Keywords tool' }, { name: 'Billing and Checkout' }, { name: 'Backlinks chart' }, { name: 'Onboarding process' }] },
+      ],
+      };
+  },
+  methods: {
+      changeDate() {
+      // 날짜 변경 로직
+      },
+      addTask(columnIndex) {
+      // 새로운 작업 추가 로직
+      const newTaskName = prompt("Enter task name:");
+      if (newTaskName) {
+          this.columns[columnIndex].tasks.push({ name: newTaskName });
+      }
+      },
+  },
 };
 </script>
 
-
-
-
-
-<style scoped src="./MainTest.css"></style>
+<style scoped src="./TodoPage.css"></style>

@@ -1,71 +1,48 @@
-header {
+.header {
     height: 70px;
+    top: 0;
+    left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 양 끝 정렬 */
     align-items: center;
     background-color: white;
     color: white;
     padding: 10px 20px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    z-index: 1000;
 }
 
-.maintitle{
-    margin-left: 65px;
+.logo {
     flex : 1;
-    color: black;
-}
-
-* {
-    box-sizing:border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 16px;
-}
-
-.container {
-    position: relative;
-    height: 100vh
-}
-
-nav {
     color : black;
+}
+
+/* 네비게이션 스타일 */
+.nav {
     flex : 1;
     display: flex;
     justify-content: center;
 }
 
-ul {
-    padding: 0px;
-}
-
-nav ul {
+.nav ul {
     width : 50rem;
     list-style: none;
     display: flex;
-    justify-content: center;
     padding: 0;
     margin: 0;
 }
 
-nav li {
+.nav li {
     padding : 1rem;
 }
 
-nav a {
+.nav a {
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-nav a:hover {
+.nav a:hover {
     color: #ff6347;
 }
 
