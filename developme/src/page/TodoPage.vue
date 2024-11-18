@@ -128,6 +128,6 @@
   };
   </script>
   
-  <!-- CSS 파일을 외부에서 가져옵니다 -->
+  <!-- CSS 파일을 외부에서 가져옵니다. -->
   <style scoped src="./TodoPage.css"></style>
   
