@@ -1,7 +1,10 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import MainTest from '@/page/MainTest.vue'
-import TestPage from '@/page/TestPage.vue'
-import TodoPage from '@/page/TodoPage.vue'
+import CommunityPage from '@/page/CommunityPage.vue'
+import LoginPage from '@/page/LoginPage.vue'
+import MyPage from '@/page/MyPage.vue'
+import CommuBoard from '@/page/CommuBoard.vue'
+import WritePost from '@/page/WritePost.vue'
 
 const routes = [
     {
@@ -10,15 +13,30 @@ const routes = [
         component: MainTest
     },
     {
-        path: '/TestPage',
-        name: 'TestPage',
-        component: TestPage
+        path: '/CommunityPage',
+        name: 'ComumnityPage',
+        component: CommunityPage
     },
     {
-        path: '/TodoPage',
-        name: 'TodoPage',
-        component: TodoPage
+        path: '/LoginPage',
+        name: 'LoginPage',
+        component: LoginPage
     },
+    {
+        path: '/MyPage',
+        name: 'MyPage',
+        component: MyPage
+    },
+    {
+        path: '/CommuBoard',
+        name: 'CommuBoard',
+        component: CommuBoard
+    },
+    {
+        path: '/WritePost',
+        name: 'WritePost',
+        component: WritePost
+    }
 ]
 
 const router = createRouter({
