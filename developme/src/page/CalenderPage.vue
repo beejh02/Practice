@@ -22,52 +22,52 @@
 <script>
 export default {
     data() {
-    return {
-        currentDate: new Date(),
-        year: new Date().getFullYear(),
-        month: new Date().getMonth(),
-        dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        monthNames: [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-        ],
-    };
-    },
+        return {
+            currentDate: new Date(),
+            year: new Date().getFullYear(),
+            month: new Date().getMonth(),
+            dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            monthNames: [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+            ],
+            };
+        },
     computed: {
-    calendarDays() {
-        const firstDay = new Date(this.year, this.month, 1).getDay();
-        const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-        const daysArray = Array(firstDay).fill(null).concat(
-        new Array(daysInMonth).fill().map((_, index) => index + 1)
-        );
-        return daysArray;
-    },
-    },
+        calendarDays() {
+            const firstDay = new Date(this.year, this.month, 1).getDay();
+            const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+            const daysArray = Array(firstDay).fill(null).concat(
+            new Array(daysInMonth).fill().map((_, index) => index + 1)
+            );
+            return daysArray;
+            },
+        },
     methods: {
-    previousMonth() {
-        if (this.month === 0) {
-        this.month = 11;
-        this.year--;
-        } else {
-        this.month--;
-        }
-    },
+        previousMonth() {
+            if (this.month === 0) {
+            this.month = 11;
+            this.year--;
+            } else {
+            this.month--;
+            }
+        },
     nextMonth() {
-        if (this.month === 11) {
-        this.month = 0;
-        this.year++;
-        } else {
-        this.month++;
-        }
-    },
+            if (this.month === 11) {
+                this.month = 0;
+                this.year++;
+            } else {
+                this.month++;
+            }
+        },
     isToday(day) {
-        const today = new Date();
-        return (
-        day === today.getDate() &&
-        this.month === today.getMonth() &&
-        this.year === today.getFullYear()
-        );
-    },
+            const today = new Date();
+            return (
+            day === today.getDate() &&
+            this.month === today.getMonth() &&
+            this.year === today.getFullYear()
+            );
+        },
     },
 };
 </script>

@@ -46,4 +46,108 @@ li {
 #content {
     display: flex;
     padding: 1.25rem;
+    align-items: flex-start;
+}
+
+.calendar_container {
+    width: 100%; /* 적절한 고정 너비 */
+    margin-left: 65px;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.header_title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header_controls button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border: none;
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar_grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 20px;
+}
+
+.day_name {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: #888;
+}
+
+.calendar_day {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.calendar_day.empty {
+    background-color: #f8f8f8;
+    cursor: default;
+}
+
+.calendar_day:hover:not(.empty) {
+    background-color: #f9f9f9;
+}
+
+.day_number {
+    font-weight: bold;
+    color: #333;
+}
+
+.day_notes {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.today {
+    background-color: #ffeb3b;
+}
+
+#calender_setting {
+    margin-left: 20px;
+    height: 655px;
+}
+
+#monthly_plan{
+    background-color: red;
+}
+
+#shape_monthly_plan{
+    background-color: #DDF9F6;
+    width: 500px;
+    height: 50px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
