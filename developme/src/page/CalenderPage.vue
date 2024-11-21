@@ -1,26 +1,21 @@
 <template>
     <div class="calendar-container">
-    <div class="calendar-header">
-        <div class="header-title">
-        <span>{{ monthNames[month] }} {{ year }}</span>
+        <div class="calendar-header">
+            <div class="header-title">
+            <span>{{ monthNames[month] }} {{ year }}</span>
+            </div>
+            <div class="header-controls">
+            <button @click="previousMonth">이전</button>
+            <button @click="nextMonth">다음</button>
+            </div>
         </div>
-        <div class="header-controls">
-        <button @click="previousMonth">이전</button>
-        <button @click="nextMonth">다음</button>
+        <div class="calendar-grid">
+            <div class="day-name" v-for="day in dayNames" :key="day">{{ day }}</div>
+                <div class="calendar-day" v-for="(day, index) in calendarDays" :key="index" :class="{ 'today': isToday(day), 'empty': day === null }">
+                <div v-if="day" class="day-number">{{ day }}</div>
+                <div v-if="day" class="day-notes">들어갈 부분</div>
+            </div>
         </div>
-    </div>
-    <div class="calendar-grid">
-        <div class="day-name" v-for="day in dayNames" :key="day">{{ day }}</div>
-        <div
-        class="calendar-day"
-        v-for="(day, index) in calendarDays"
-        :key="index"
-        :class="{ 'today': isToday(day), 'empty': day === null }"
-        >
-        <div v-if="day" class="day-number">{{ day }}</div>
-        <div v-if="day" class="day-notes">들어갈 부분</div>
-        </div>
-    </div>
     </div>
 </template>
 
@@ -78,4 +73,4 @@ export default {
 </script>
 
 
-<style scoped src="./MainTest.css"></style>
+<style scoped src="./CalenderPage.css"></style>
