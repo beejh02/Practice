@@ -114,7 +114,7 @@ export default {
     },
     selectMenu(index) {
         this.selectedMenu = index; // 선택된 메뉴의 인덱스를 설정
-    }
+    },
 };
 </script>
 
