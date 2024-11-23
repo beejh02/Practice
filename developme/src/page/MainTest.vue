@@ -46,7 +46,7 @@
                 </div>
                 <div class= "monthly_plan_category">
                     <div id = "shape_category">
-                        <span id = "font_category">CATEGORY</span>
+                        <div id = "font_category">CATEGORY</div>
                     </div>
                     <div id = "monthly_plan_category_list">
                         <div class = "category_list" v-for="catego in category" :key="catego">{{ catego }}></div>
