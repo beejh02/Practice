@@ -44,14 +44,17 @@
                 <div id= "shape_monthly_plan">
                     <span id = "font_monthly_plan">나의 한달 계획</span>
                 </div>
-                <div class= "monthly_plan_category">
-                    <div id = "shape_category">
-                        <div id = "font_category">CATEGORY</div>
-                    </div>
-                    <div id = "monthly_plan_category_list">
-                        <div class = "category_list" v-for="catego in category" :key="catego">{{ catego }}></div>
+                <div id = "inshape_monthly_plan">
+                    <div class= "monthly_plan_category">
+                        <div id = "shape_category">
+                            <div id = "font_category">CATEGORY</div>
+                        </div>
+                        <div id = "monthly_plan_category_list">
+                            <div class = "category_list" v-for="catego in category" :key="catego">{{ catego }}</div>
+                        </div>
                     </div>
                 </div>
+                
             </div>
             <div id = "set_plan">
 
