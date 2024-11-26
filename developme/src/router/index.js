@@ -5,7 +5,7 @@ import LoginPage from '@/page/LoginPage.vue'
 import MyPage from '@/page/MyPage.vue'
 import CommuBoard from '@/page/CommuBoard.vue'
 import WritePost from '@/page/WritePost.vue'
-import CalenderPage from '@/page/CalenderPage.vue'
+import CalendarPage from '@/page/CalendarPage.vue'
 
 const routes = [
     {
@@ -39,9 +39,9 @@ const routes = [
         component: WritePost
     },
     {
-        path: '/CalenderPage',
-        name: 'CalenderPage',
-        component: CalenderPage
+        path: '/CalendarPage',
+        name: 'CalendarPage',
+        component: CalendarPage
     }
 ]
 
