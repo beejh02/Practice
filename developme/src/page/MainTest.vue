@@ -43,6 +43,9 @@
             </ul>
         </aside>
         <aside v-else class="menu">
+            <button @click="toggleSidebar">
+            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
+            </button>
             <h2>메뉴</h2>
             <ul>
                 <li><a href="#">메뉴 1</a></li>
@@ -52,8 +55,7 @@
         </aside>
 
         <section class="content">
-            <h1>콘텐츠</h1>
-            <img src = '../assets/images/임시사용이미지.png'>
+            <img id = "tree" src = '../assets/images/Algorythm_tree.png'>
         </section>
     </div>
 </template>
@@ -64,12 +66,15 @@
 export default {
     data() {
         return {
-        isSidebarVisible: true,
-        ranking: ['사용자 A', '사용자 B', '사용자 C'],
+            isSidebarVisible: true, // 초기 상태: 랭킹 표시
         };
     },
     methods: {
-    }
+        toggleSidebar() {
+            // 사이드바 상태를 토글
+            this.isSidebarVisible = !this.isSidebarVisible;
+        },
+    },
 };
 </script>
 
