@@ -1,59 +1,27 @@
-.ranking-container {
-    padding: 2rem;
-    text-align: center;
+.ranking,
+.menu {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.ranking-container h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.medals {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.medal img {
-    width: 50px;
-    height: 50px;
-}
-
-.medal span {
-    display: block;
-    margin-top: 0.5rem;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.tree-container {
-    position: relative;
-    display: inline-block;
-}
-
-.tree-image {
-    width: 80%;
-    max-width: 600px;
-    height: auto;
-}
-
-.tree-button {
-    position: absolute;
+.content {
+    flex: 1;
+    padding: 20px;
     background-color: #fff;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 38px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    overflow-y: auto;
 }
 
-.tree-button:hover {
-    background-color: #ff6f61;
-    color: #fff;
+.medal-image {
+    width: 20px; /* 메달 크기 */
+    height: 20px;
+    margin-right: 10px; /* 텍스트와 간격 */
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none; /* 불릿(점) 제거 */
+    padding: 0; /* 기본 들여쓰기 제거 */
+    margin: 0; /* 기본 여백 제거 */
 }

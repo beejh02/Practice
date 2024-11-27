@@ -19,49 +19,42 @@
         </div>
     </header>
 
-    <main>
-        <div class="ranking-container">
-            <h2>이번주 랭킹</h2>
-            <div class="medals">
-                <div class="medal">
-                    <img src="gold_medal.png" alt="Gold Medal" />
-                    <span>1위</span>
-                </div>
-                <div class="medal">
-                    <img src="silver_medal.png" alt="Silver Medal" />
-                    <span>2위</span>
-                </div>
-                <div class="medal">
-                    <img src="bronze_medal.png" alt="Bronze Medal" />
-                    <span>3위</span>
-                </div>
-            </div>
-            <div class="tree-container">
-                <img src="tree_image.png" alt="Tree" class="tree-image" />
-                <!-- 숫자 버튼 -->
-                <button class="tree-button" style="top: 10%; left: 20%;">1</button>
-                <button class="tree-button" style="top: 15%; left: 30%;">2</button>
-                <button class="tree-button" style="top: 20%; left: 40%;">3</button>
-                <button class="tree-button" style="top: 25%; left: 50%;">4</button>
-                <button class="tree-button" style="top: 30%; left: 60%;">5</button>
-                <button class="tree-button" style="top: 35%; left: 70%;">6</button>
-                <button class="tree-button" style="top: 40%; left: 80%;">7</button>
-                <button class="tree-button" style="top: 45%; left: 20%;">8</button>
-                <button class="tree-button" style="top: 50%; left: 30%;">9</button>
-                <button class="tree-button" style="top: 55%; left: 40%;">10</button>
-                <button class="tree-button" style="top: 60%; left: 50%;">11</button>
-                <button class="tree-button" style="top: 65%; left: 60%;">12</button>
-                <button class="tree-button" style="top: 70%; left: 70%;">13</button>
-                <button class="tree-button" style="top: 75%; left: 80%;">14</button>
-                <button class="tree-button" style="top: 80%; left: 20%;">15</button>
-                <button class="tree-button" style="top: 85%; left: 30%;">16</button>
-                <button class="tree-button" style="top: 90%; left: 40%;">17</button>
-                <button class="tree-button" style="top: 95%; left: 50%;">18</button>
-                <button class="tree-button" style="top: 100%; left: 60%;">19</button>
-                <button class="tree-button" style="top: 105%; left: 70%;">20</button>
-            </div>
-        </div>
-    </main>
+    <div class="container">
+        <aside v-if="isSidebarVisible" class= "ranking">
+        <h2>랭킹</h2>
+            <ul>
+                <li>
+                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
+                1. 사용자 A
+                </li>
+                <li>
+                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
+                2. 사용자 B
+                </li>
+                <li>
+                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
+                3. 사용자 C
+                </li>
+
+            </ul>
+        </aside>
+        <aside v-else class="menu">
+            <h2>메뉴</h2>
+            <ul>
+                <li><a href="#">메뉴 1</a></li>
+                <li><a href="#">메뉴 2</a></li>
+                <li><a href="#">메뉴 3</a></li>
+            </ul>
+        </aside>
+
+        <section class="content">
+            <button @click="toggleSidebar">
+            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
+            </button>
+            <h1>콘텐츠</h1>
+            <img src = '../assets/images/임시사용이미지.png'>
+        </section>
+    </div>
 </template>
 
 
@@ -70,86 +63,12 @@
 export default {
     data() {
         return {
-            currentDate: new Date(),
-            year: new Date().getFullYear(),
-            month: new Date().getMonth(),
-            dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            monthNames: [
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ],
-            category: ["약속", "학교", "프로젝트", "중요", "개인 공부"],
-            selectedDate: null,
-            schedules: {}, // 날짜별 일정 저장
-            showModal: false, // 모달 표시 여부
-            newSchedule: "", // 새로 추가할 일정 이름
-            newCategory: "", // 새로 추가할 카테고리
+        isSidebarVisible: true,
+        ranking: ['사용자 A', '사용자 B', '사용자 C'],
         };
     },
-    computed: {
-        calendarDays() {
-            const firstDay = new Date(this.year, this.month, 1).getDay();
-            const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-            const daysArray = Array(firstDay).fill(null).concat(
-                new Array(daysInMonth).fill().map((_, index) => index + 1)
-            );
-            return daysArray;
-        },
-    },
     methods: {
-        previousMonth() {
-            if (this.month === 0) {
-                this.month = 11;
-                this.year--;
-            } else {
-                this.month--;
-            }
-        },
-        nextMonth() {
-            if (this.month === 11) {
-                this.month = 0;
-                this.year++;
-            } else {
-                this.month++;
-            }
-        },
-        isToday(day) {
-            const today = new Date();
-            return (
-                day === today.getDate() &&
-                this.month === today.getMonth() &&
-                this.year === today.getFullYear()
-            );
-        },
-        selectDate(day) {
-            if (day) {
-                this.selectedDate = `${this.year}-${String(this.month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            }
-        },
-        getSchedules(date) {
-            return this.schedules[date] || [];
-        },
-        openModal() {
-            this.showModal = true;
-            this.newCategory = this.category[0] || ""; // 기본 카테고리 선택
-            this.newSchedule = ""; // 입력 필드 초기화
-        },
-        closeModal() {
-            this.showModal = false;
-        },
-        addSchedule() {
-            if (this.newSchedule.trim() === "") return; // 빈 값 방지
-            if (!this.schedules[this.selectedDate]) {
-                this.schedules[this.selectedDate] = []; // 새 배열 생성
-            }
-            this.schedules[this.selectedDate].push({
-                name: this.newSchedule.trim(),
-                category: this.newCategory,
-            }); // 카테고리와 함께 일정 추가
-            this.newSchedule = ""; // 입력창 초기화
-            this.showModal = false; // 모달 닫기
-        },
-    },
+    }
 };
 </script>
 
