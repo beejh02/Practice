@@ -21,6 +21,10 @@
 
     <div class="container">
         <aside v-if="isSidebarVisible" class= "ranking">
+        
+            <button @click="toggleSidebar">
+            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
+            </button>
         <h2>랭킹</h2>
             <ul>
                 <li>
@@ -48,9 +52,6 @@
         </aside>
 
         <section class="content">
-            <button @click="toggleSidebar">
-            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
-            </button>
             <h1>콘텐츠</h1>
             <img src = '../assets/images/임시사용이미지.png'>
         </section>

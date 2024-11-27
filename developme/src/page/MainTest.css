@@ -13,15 +13,28 @@
     overflow-y: auto;
 }
 
-.medal-image {
-    width: 20px; /* 메달 크기 */
-    height: 20px;
-    margin-right: 10px; /* 텍스트와 간격 */
+.medal_image {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 10px;
     vertical-align: middle;
 }
 
 ul {
-    list-style: none; /* 불릿(점) 제거 */
-    padding: 0; /* 기본 들여쓰기 제거 */
-    margin: 0; /* 기본 여백 제거 */
+    margin-top: ;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }
