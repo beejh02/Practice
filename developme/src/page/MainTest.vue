@@ -55,7 +55,27 @@
         </aside>
 
         <section class="content">
-            <img id = "tree" src = '../assets/images/Algorythm_tree.png'>
+            <div class="tree-container">
+                <!-- 출석판을 트리 이미지 위에 올려놓습니다 -->
+                <img id="tree" src="../assets/images/Algorythm_tree.png">
+                <div class="attendance-overlay">
+                    <div class="grid">
+                        <div 
+                            v-for="(day, index) in days" 
+                            :key="index" 
+                            class="cell"
+                        >
+                            <img 
+                                v-if="day.isStamped" 
+                                src="../assets/images/임시사용이미지.png" 
+                                alt="Stamped" 
+                                class="stamp"
+                            />
+                            <span>{{ index + 1 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </template>
@@ -67,6 +87,7 @@ export default {
     data() {
         return {
             isSidebarVisible: true, // 초기 상태: 랭킹 표시
+            days: Array(20).fill({ isStamped: false }) // 20개의 출석 칸을 초기화
         };
     },
     methods: {
@@ -74,11 +95,22 @@ export default {
             // 사이드바 상태를 토글
             this.isSidebarVisible = !this.isSidebarVisible;
         },
+        setAttendanceData() {
+            const attendanceData = [
+                true, false, true, false, true, false, false, true, true, false, 
+                false, true, false, true, true, false, false, true, true, false
+            ]; // 서버에서 받을 데이터 예시
+
+            this.days = this.days.map((day, index) => ({
+                isStamped: attendanceData[index] || false, // 출석 여부에 따라 스탬프 표시
+            }));
+        }
     },
+    mounted() {
+        this.setAttendanceData(); // 페이지가 로드될 때 출석 데이터 세팅
+    }
 };
 </script>
-
-
 
 
 
