@@ -69,10 +69,15 @@ li {
 }
 
 .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: white;
     position: absolute;
     transform: translate(-50%, -50%); /* 좌표를 기준으로 중심 정렬 */
-    width: 40px; /* 스탬프 크기 */
-    height: 40px;
+    width: 55px; /* 스탬프 크기 */
+    height: 55px;
     text-align: center;
 }
 

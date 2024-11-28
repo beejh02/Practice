@@ -84,14 +84,29 @@ export default {
     data() {
         return {
             days: [
-                { x: 10, y: 20 }, // 나무의 좌측 상단 10% x, 20% y 위치
-                { x: 30, y: 50 }, // 나무의 중앙쯤
-                { x: 50, y: 80 }, // 나무 하단부
-                { x: 70, y: 30 },
-                { x: 90, y: 10 }
+                { x: 12, y: 57 }, // 1
+                { x: 23, y: 59 },
+                { x: 35, y: 62 },
+                { x: 48, y: 55 },
+                { x: 60, y: 59 }, // 5
+                { x: 74, y: 60 },
+                { x: 88, y: 55 },
+                { x: 11, y: 44 },
+                { x: 27, y: 46 },
+                { x: 43, y: 43 }, // 10
+                { x: 56, y: 48 },
+                { x: 72, y: 46 },
+                { x: 84, y: 43 },
+                { x: 23, y: 34 },
+                { x: 36, y: 30 }, // 15
+                { x: 54, y: 34 },
+                { x: 68, y: 30 },
+                { x: 44, y: 23 },
+                { x: 60, y: 20 },
+                { x: 50, y: 13 }, // 20
             ],
             attendanceData: [
-                true, false, true, false, true // 출석 여부 데이터
+                false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             ]
         };
     },
