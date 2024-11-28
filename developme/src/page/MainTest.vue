@@ -20,31 +20,29 @@
     </header>
 
     <div class="container">
-        <aside v-if="isSidebarVisible" class= "ranking">
-        
+        <aside v-if="isSidebarVisible" class="ranking">
             <button @click="toggleSidebar">
-            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
+                {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
             </button>
-        <h2>랭킹</h2>
+            <h2>랭킹</h2>
             <ul>
                 <li>
-                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
-                1. 사용자 A
+                    <img src="../assets/images/임시사용이미지.png" class="medal_image" />
+                    1. 사용자 A
                 </li>
                 <li>
-                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
-                2. 사용자 B
+                    <img src="../assets/images/임시사용이미지.png" class="medal_image" />
+                    2. 사용자 B
                 </li>
                 <li>
-                <img src= "../assets/images/임시사용이미지.png" class= "medal_image" />
-                3. 사용자 C
+                    <img src="../assets/images/임시사용이미지.png" class="medal_image" />
+                    3. 사용자 C
                 </li>
-
             </ul>
         </aside>
         <aside v-else class="menu">
             <button @click="toggleSidebar">
-            {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
+                {{ isSidebarVisible ? '메뉴로 전환' : '랭킹으로 전환' }}
             </button>
             <h2>메뉴</h2>
             <ul>
@@ -56,23 +54,21 @@
 
         <section class="content">
             <div class="tree-container">
-                <!-- 출석판을 트리 이미지 위에 올려놓습니다 -->
-                <img id="tree" src="../assets/images/Algorythm_tree.png">
-                <div class="attendance-overlay">
-                    <div class="grid">
-                        <div 
-                            v-for="(day, index) in days" 
-                            :key="index" 
-                            class="cell"
-                        >
-                            <img 
-                                v-if="day.isStamped" 
-                                src="../assets/images/임시사용이미지.png" 
-                                alt="Stamped" 
-                                class="stamp"
-                            />
-                            <span>{{ index + 1 }}</span>
-                        </div>
+                <img id="tree" src="../assets/images/Algorythm_tree.png" alt="나무 이미지">
+                <div class="grid">
+                    <div 
+                        v-for="(day, index) in stampedDays" 
+                        :key="index" 
+                        class="cell"
+                        :style="`left: ${day.x}%; top: ${day.y}%;`"
+                    >
+                        <span v-if="!day.isStamped" class="day-number">{{ index + 1 }}</span>
+                        <img 
+                            v-if="day.isStamped" 
+                            src="../assets/images/임시사용이미지.png" 
+                            alt="Stamped" 
+                            class="stamp"
+                        />
                     </div>
                 </div>
             </div>
@@ -82,32 +78,35 @@
 
 
 
+
 <script>
 export default {
     data() {
         return {
-            isSidebarVisible: true, // 초기 상태: 랭킹 표시
-            days: Array(20).fill({ isStamped: false }) // 20개의 출석 칸을 초기화
+            days: [
+                { x: 10, y: 20 }, // 나무의 좌측 상단 10% x, 20% y 위치
+                { x: 30, y: 50 }, // 나무의 중앙쯤
+                { x: 50, y: 80 }, // 나무 하단부
+                { x: 70, y: 30 },
+                { x: 90, y: 10 }
+            ],
+            attendanceData: [
+                true, false, true, false, true // 출석 여부 데이터
+            ]
         };
     },
     methods: {
         toggleSidebar() {
-            // 사이드바 상태를 토글
             this.isSidebarVisible = !this.isSidebarVisible;
-        },
-        setAttendanceData() {
-            const attendanceData = [
-                true, false, true, false, true, false, false, true, true, false, 
-                false, true, false, true, true, false, false, true, true, false
-            ]; // 서버에서 받을 데이터 예시
-
-            this.days = this.days.map((day, index) => ({
-                isStamped: attendanceData[index] || false, // 출석 여부에 따라 스탬프 표시
-            }));
         }
     },
-    mounted() {
-        this.setAttendanceData(); // 페이지가 로드될 때 출석 데이터 세팅
+    computed: {
+        stampedDays() {
+            return this.days.map((day, index) => ({
+                ...day,
+                isStamped: this.attendanceData[index] || false
+            }));
+        }
     }
 };
 </script>
