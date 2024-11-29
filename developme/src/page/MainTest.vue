@@ -62,7 +62,7 @@
                         class="cell"
                         :style="`left: ${day.x}%; top: ${day.y}%;`"
                     >
-                        <span v-if="!day.isStamped" class="day-number">{{ index + 1 }}</span>
+                        <span v-if="!day.isStamped" class="day_number">{{ index + 1 }}</span>
                         <img 
                             v-if="day.isStamped" 
                             src="../assets/images/임시사용이미지.png" 
