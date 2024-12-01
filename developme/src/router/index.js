@@ -6,6 +6,7 @@ import MyPage from '@/page/MyPage.vue'
 import CommuBoard from '@/page/CommuBoard.vue'
 import WritePost from '@/page/WritePost.vue'
 import CalendarPage from '@/page/CalendarPage.vue'
+import TodoPage from '@/page/TodoPage.vue'
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/CalendarPage',
         name: 'CalendarPage',
         component: CalendarPage
+    },
+    {
+        path: '/TodoPage',
+        name: 'TodoPage',
+        component: TodoPage
     }
 ]
 
