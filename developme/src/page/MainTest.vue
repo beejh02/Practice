@@ -83,6 +83,7 @@
 export default {
     data() {
         return {
+            isSidebarVisible: true,
             days: [
                 { x: 12, y: 57 }, // 1
                 { x: 23, y: 59 },
