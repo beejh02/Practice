@@ -25,17 +25,28 @@
                 <div class = "date">
                     <button>left</button> <a> f{{ date }} </a> <button>right</button>
                 </div>
+
                 <div class = "todo">
                     <div v-for="(column, index) in columns" :key="index" class="column">
                         <div class="column-header">
-                            <h3>{{ column.title }} <span>{{ column.tasks.length }}</span></h3>
+                            <span class = "column_title">{{ column.title }} <span id = "cnt_column">{{ column.tasks.length }}</span></span>
                             <button @click="openModal(index)" class="settings-btn">⚙️</button>
                         </div>
+                        <div class = "color_bar"></div>
+                        
                         <div class="tasks">
                             <div v-for="(task, taskIndex) in column.tasks" :key="taskIndex" class="task-card">
-                            <p>{{ task.name }}</p>
+                                <p>{{ task.name }}</p>
                             </div>
-                            <button class="add-task-btn" @click="addTask(index)">Add task</button>
+                            <div>
+                                <input
+                                class="add_task_input"
+                                type="text"
+                                v-model="inputData[index]"
+                                @blur="addTask(index)"
+                                placeholder="Add task"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,44 +61,42 @@
 <script>
 export default {
     data() {
-    return {
+        return {
         columns: [
-        {
-            title: 'Get Started',
+            {
+            title: "Get Started",
             tasks: [
-            { name: 'Welcome to your board' },
-            { name: 'Find your files' },
-            { name: 'Branding & Assets' },
-            { name: 'Manage your subscription' },
+                { name: "Welcome to your board" },
+                { name: "Find your files" },
+                { name: "Branding & Assets" },
+                { name: "Manage your subscription" },
             ],
-        },
-        {
-            title: 'Requests Backlog',
+            },
+            {
+            title: "Requests Backlog",
             tasks: [
-            { name: 'Pricing page' },
-            { name: 'Contact us page' },
-            { name: 'Google Chrome Extension Redesign' },
-            { name: 'X/Twitter Cover' },
+                { name: "Pricing page" },
+                { name: "Contact us page" },
+                { name: "Google Chrome Extension Redesign" },
+                { name: "X/Twitter Cover" },
             ],
-        },
-        {
-            title: 'In Progress',
-            tasks: [{ name: 'Home page' }, { name: 'Schedule custom reporting' }],
-        },
-        {
-            title: 'Approved',
+            },
+            {
+            title: "In Progress",
+            tasks: [{ name: "Home page" }, { name: "Schedule custom reporting" }],
+            },
+            {
+            title: "Approved",
             tasks: [
-            { name: 'Search history for Backlinks and Keywords tool' },
-            { name: 'Billing and Checkout' },
-            { name: 'Backlinks chart' },
-            { name: 'Onboarding process' },
+                { name: "Search history for Backlinks and Keywords tool" },
+                { name: "Billing and Checkout" },
+                { name: "Backlinks chart" },
+                { name: "Onboarding process" },
             ],
-        },
+            },
         ],
-        isModalOpen: false,
-        currentColumnIndex: null,
-        editTitle: '',
-    };
+        inputData: {}, // 카테고리별 임시 입력 데이터 저장
+        };
     },
     methods: {
     changeDate() {
@@ -118,10 +127,11 @@ export default {
         this.columns[this.currentColumnIndex].tasks.splice(taskIndex, 1);
         }
     },
-    addTask(columnIndex) {
-        const newTaskName = prompt('Enter task name:');
-        if (newTaskName) {
-        this.columns[columnIndex].tasks.push({ name: newTaskName });
+    addTask(index) {
+        const newTaskName = this.inputData[index];
+        if (newTaskName && newTaskName.trim() !== "") {
+            this.columns[index].tasks.push({ name: newTaskName });
+            this.inputData[index] = "";
         }
     },
     },

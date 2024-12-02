@@ -27,16 +27,16 @@
         </div>
         <div class="board-columns">
             <div v-for="(column, index) in columns" :key="index" class="column">
-            <div class="column-header">
-                <h3>{{ column.title }} <span>{{ column.tasks.length }}</span></h3>
-                <button @click="openModal(index)" class="settings-btn">⚙️</button>
-            </div>
-            <div class="tasks">
-                <div v-for="(task, taskIndex) in column.tasks" :key="taskIndex" class="task-card">
-                <p>{{ task.name }}</p>
+                <div class="column-header">
+                    <h3>{{ column.title }} <span>{{ column.tasks.length }}</span></h3>
+                    <button @click="openModal(index)" class="settings-btn">⚙️</button>
                 </div>
-                <button class="add-task-btn" @click="addTask(index)">Add task</button>
-            </div>
+                <div class="tasks">
+                    <div v-for="(task, taskIndex) in column.tasks" :key="taskIndex" class="task-card">
+                    <p>{{ task.name }}</p>
+                    </div>
+                    <button class="add-task-btn" @click="addTask(index)">Add task</button>
+                </div>
             </div>
         </div>
 
