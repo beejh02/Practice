@@ -25,7 +25,7 @@
                 <div class = "date">
                     <button>left</button> <a> f{{ date }} </a> <button>right</button>
                 </div>
-
+                
                 <div class = "todo">
                     <div v-for="(column, index) in columns" :key="index" class="column">
                         <div class="column-header">
