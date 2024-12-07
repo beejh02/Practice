@@ -39,7 +39,12 @@
             </div>
         </div>
         <div id = "main_content">
-            
+            <div class = "top_bar">
+
+            </div>
+            <div class = "bulletin_list">
+                
+            </div>
         </div>
     </div>
 </template>
