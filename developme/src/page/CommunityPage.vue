@@ -5,7 +5,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">투두 리스트</a></li>
+                <li><a href="todopage">투두 리스트</a></li>
                 <li><a href="calendarpage">캘린더</a></li>
                 <li><a href="communitypage">커뮤니티</a></li>
                 <li><a href="#">로드맵</a></li>
@@ -40,7 +40,13 @@
         </div>
         <div id = "main_content">
             <div class = "top_bar">
-
+                <div class = "top_bar_buttons">
+                    <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 1 }" @click="selectTopbarbutton(1)">New</button>
+                    <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 2 }" @click="selectTopbarbutton(2)">Top</button>
+                    <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 3 }" @click="selectTopbarbutton(3)">Hot</button>
+                    <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 4 }" @click="selectTopbarbutton(4)">Closed</button>
+                </div>
+                <button class = "write_post">글 작성하기</button>
             </div>
             <div class = "bulletin_list">
                 
@@ -56,7 +62,8 @@
 export default {
     data() {
         return {
-            selectedMenu: null // 선택된 메뉴 항목의 인덱스를 저장
+            selectedMenu: null, // 선택된 메뉴 항목의 인덱스를 저장
+            selectedTopbarbutton: null
         };
     },
     methods: {
@@ -75,7 +82,14 @@ export default {
                 });
         },
         selectMenu(index) {
-            this.selectedMenu = index; // 선택된 메뉴의 인덱스를 설정
+            this.selectedMenu = index;
+        },
+        selectTopbarbutton(index) {
+        if (this.selectedTopbarbutton === index) {
+            this.selectedTopbarbutton = null;
+        } else {
+            this.selectedTopbarbutton = index;
+        }
         }
     }
 };
