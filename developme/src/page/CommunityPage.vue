@@ -46,11 +46,21 @@
                     <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 3 }" @click="selectTopbarbutton(3)">Hot</button>
                     <button class = "topbarbutton" :class="{ active: selectedTopbarbutton === 4 }" @click="selectTopbarbutton(4)">Closed</button>
                 </div>
-                <button class = "write_post">글 작성하기</button>
+                <button class = "write_post_button">글 작성하기</button>
             </div>
             <div class = "bulletin_list">
-                
+                <div class = "bulletin">
+                    <div class = "bulletin_top">
+                        <div class = "bulletin_info">
+                            <span class= "bulletin_writer">작성자 이름</span>
+                            <span class= "bulletin_writing_time">게시글 작성 시간</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div id = "right_side_bar">
+
         </div>
     </div>
 </template>
@@ -82,14 +92,18 @@ export default {
                 });
         },
         selectMenu(index) {
-            this.selectedMenu = index;
+            if (this.selectedMenu === index) {
+                this.selectedMenu = null;
+            } else {
+                this.selectedMenu = index;
+            }
         },
         selectTopbarbutton(index) {
-        if (this.selectedTopbarbutton === index) {
-            this.selectedTopbarbutton = null;
-        } else {
-            this.selectedTopbarbutton = index;
-        }
+            if (this.selectedTopbarbutton === index) {
+                this.selectedTopbarbutton = null;
+            } else {
+                this.selectedTopbarbutton = index;
+            }
         }
     }
 };
