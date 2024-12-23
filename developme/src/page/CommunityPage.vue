@@ -55,6 +55,7 @@
                             <span class= "bulletin_writer">작성자 이름</span>
                             <span class= "bulletin_writing_time">게시글 작성 시간</span>
                         </div>
+                        <div class = ""></div>
                     </div>
                 </div>
             </div>
@@ -113,4 +114,4 @@ export default {
 
 
 
-<style scoped src="./CommunityPage.css"></style>
+<style scoped src="../css/CommunityPage.css"></style>

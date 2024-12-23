@@ -41,4 +41,4 @@ export default {
 
 
 
-<style scoped src="./CommuBoard.css"></style>
+<style scoped src="../css/CommuBoard.css"></style>

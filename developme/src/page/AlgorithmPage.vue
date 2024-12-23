@@ -133,4 +133,4 @@ export default {
 
 
 
-<style scoped src="./AlgorithmPage.css"></style>
+<style scoped src="../css/AlgorithmPage.css"></style>

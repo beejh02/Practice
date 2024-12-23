@@ -180,4 +180,4 @@ export default {
 
 
 
-<style scoped src="./MainTest.css"></style>
+<style scoped src="../css/MainTest.css"></style>

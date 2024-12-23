@@ -97,4 +97,4 @@ methods: {
 
 
 
-<style scoped src="./LoginPage.css"></style>
+<style scoped src="../css/LoginPage.css"></style>
