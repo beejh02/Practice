@@ -105,6 +105,8 @@ li {
 }
 
 .bulletin {
+    display: flex;
+    flex-direction: column;
     padding: 30px;
     background-color: white;
     height: 275px;
@@ -115,18 +117,61 @@ li {
 .bulletin_top {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .bulletin_info {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .bulletin_writer {
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .bulletin_writing_time {
     font-size: 0.9rem;
     color: #808080;
+}
+
+.bulletin_board_button {
+    border: none;
+    background-color: transparent;
+    border-radius: 100%;
+}
+
+/* .bulletin_board_button:hover{
+    background-color: #808080;
+} */
+
+.kebab-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 20px;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.kebab-menu div {
+    background-color: black;
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+    margin: 2px;
+}
+
+.bulletin_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bulletin_title {
+    font-weight: bold;
+    font-size: 1.5rem;
 }

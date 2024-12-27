@@ -55,7 +55,17 @@
                             <span class= "bulletin_writer">작성자 이름</span>
                             <span class= "bulletin_writing_time">게시글 작성 시간</span>
                         </div>
-                        <div class = ""></div>
+                        <button class = "bulletin_board_button">
+                            <div class="kebab-menu">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class = "bulletin_content">
+                        <span class = "bulletin_title">츄르가 맛있어</span>
+                        <span class = "bulletin_plot">내가 먹었어</span>
                     </div>
                 </div>
             </div>
