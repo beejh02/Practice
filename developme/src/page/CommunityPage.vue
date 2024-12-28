@@ -67,6 +67,13 @@
                         <span class = "bulletin_title">츄르가 맛있어</span>
                         <span class = "bulletin_plot">내가 먹었어</span>
                     </div>
+                    <div class = "bulletin_bottom">
+                        <div class = "bulletin_stack">
+                            <div class = "stack">#golang</div>
+                            <div class = "stack">#java</div>
+                        </div>
+                        <div class = "bulletin_page"><span class = "bulletin_span_page">2/5</span></div>
+                    </div>
                 </div>
             </div>
         </div>
