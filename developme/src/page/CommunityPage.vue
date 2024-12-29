@@ -76,6 +76,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         <div id = "right_side_bar">
 
